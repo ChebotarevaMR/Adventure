@@ -58,6 +58,8 @@
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\GlassesFly.cs" />
     <Compile Include="Assets\Scripts\TakeGlasses.cs" />
+    <Compile Include="Assets\Scripts\ChairThrow.cs" />
+    <Compile Include="Assets\Scripts\DoorMove.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Sprites\Новый текстовый документ.txt" />

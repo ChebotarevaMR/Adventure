@@ -18,6 +18,7 @@ public class GlassesFly : MonoBehaviour
                 Animator.SetBool("isBreak", true);
             }
         }
+        // TODO переделать space на событие
         if (Input.GetKeyDown(KeyCode.Space) && !IsFly)
         {
             IsFly = true;
