@@ -5,22 +5,22 @@ public class GlassesFly : MonoBehaviour
     public Animator Animator;
     public float Speed = 1.0f;
     public Transform Player;
-    private bool _isFly;
-    private bool _isBreak;
+    public bool IsFly { get; private set; }
+    public bool IsBreak { get; private set; }
     void Update()
     {
-        if (_isFly && !_isBreak && transform.position.y > Player.position.y)
+        if (IsFly && !IsBreak && transform.position.y > Player.position.y)
         {
             transform.position -= Vector3.up * Speed * Time.deltaTime;
-            if(transform.position.y <= Player.position.y && !_isBreak)
+            if(transform.position.y <= Player.position.y && !IsBreak)
             {
-                _isBreak = true;
+                IsBreak = true;
                 Animator.SetBool("isBreak", true);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !_isFly)
+        if (Input.GetKeyDown(KeyCode.Space) && !IsFly)
         {
-            _isFly = true;
+            IsFly = true;
             Animator.SetBool("isFly", true);
         }        
     }

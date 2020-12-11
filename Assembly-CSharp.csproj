@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\GlassesFly.cs" />
+    <Compile Include="Assets\Scripts\TakeGlasses.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Sprites\Новый текстовый документ.txt" />
