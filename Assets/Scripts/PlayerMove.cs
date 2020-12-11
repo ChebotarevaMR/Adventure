@@ -26,5 +26,23 @@ public class PlayerMove : MonoBehaviour
         {
             Animator.SetBool("isWalkDown", false);
         }
+        if (Input.GetKey(KeyCode.D))
+        {
+            Animator.SetBool("isWalkRight", true);
+            transform.position -= Vector3.left * Speed * Time.deltaTime;
+        }
+        else
+        {
+            Animator.SetBool("isWalkRight", false);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            Animator.SetBool("isWalkLeft", true);
+            transform.position += Vector3.left * Speed * Time.deltaTime;
+        }
+        else
+        {
+            Animator.SetBool("isWalkLeft", false);
+        }
     }
 }
