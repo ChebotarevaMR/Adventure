@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 230375410}
   - component: {fileID: 230375411}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: CabinetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -686,6 +686,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252523308}
   m_CullTransparentMesh: 0
+--- !u!1 &323952346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323952348}
+  - component: {fileID: 323952347}
+  - component: {fileID: 323952349}
+  m_Layer: 0
+  m_Name: Field
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &323952347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323952346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6107c1d40357c4f93c6cf6d9bd10f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rect:
+    serializedVersion: 2
+    x: -12.5
+    y: 7
+    width: 25
+    height: 14
+  Cells: {x: 38, y: 22}
+  DrawNet: 1
+  Colliders:
+  - {fileID: 2036105134}
+  - {fileID: 1518162809}
+  - {fileID: 230375411}
+  - {fileID: 1149560620}
+  - {fileID: 1095104955}
+  - {fileID: 1519579586}
+  - {fileID: 1660415398}
+  - {fileID: 1839228120}
+--- !u!4 &323952348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323952346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.5, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &323952349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323952346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d6c7a77cbac2e44a7b5a28c8a9322b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Field: {fileID: 323952347}
 --- !u!1 &360446522
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 437536986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.81, y: -1.54, z: -2}
+  m_LocalPosition: {x: -7.84, y: -2.59, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 531526766}
@@ -2687,7 +2761,7 @@ GameObject:
   - component: {fileID: 1518162808}
   - component: {fileID: 1518162809}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: PianoCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2920,12 +2994,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d93b34a669610044f9c993324aad6a36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d62bd12b02575a4cb4a0780cd1c08a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.51, y: 3}
+  m_Size: {x: 1.45, y: 2.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2939,7 +3013,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595375346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 0.28, z: 0}
+  m_LocalPosition: {x: 8.78, y: -2.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2957,13 +3031,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa32b508c491c4442995773f0ac3d5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
-  Speed: 2
-  Waypoints:
-  - {fileID: 871308801}
-  - {fileID: 2016807933}
-  - {fileID: 360446523}
-  - {fileID: 954415643}
+  Animator: {fileID: 1595375347}
+  Speed: 3
+  AStart: {fileID: 323952349}
+  Player: {fileID: 437536986}
 --- !u!1 &1660415395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,7 +3274,7 @@ GameObject:
   - component: {fileID: 1839228119}
   - component: {fileID: 1839228120}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: TableCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3794,7 +3865,7 @@ GameObject:
   - component: {fileID: 2036105133}
   - component: {fileID: 2036105134}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: WallCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
