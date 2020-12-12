@@ -60,6 +60,8 @@
     <Compile Include="Assets\Scripts\TakeGlasses.cs" />
     <Compile Include="Assets\Scripts\ChairThrow.cs" />
     <Compile Include="Assets\Scripts\DoorMove.cs" />
+    <Compile Include="Assets\Scripts\PictureAnimation.cs" />
+    <Compile Include="Assets\Scripts\IgnoreCollider.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Sprites\Новый текстовый документ.txt" />
