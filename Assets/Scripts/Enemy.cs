@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
 
     private bool _isFollow;
 
+    private bool _isCenter;
+    private Vector3 CurrentCenter;
+
     private void Start()
     {
 
@@ -67,75 +70,87 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
-        var follow  = Mathf.Abs((transform.position - Player.transform.position).magnitude) < 25;
-        Debug.Log(follow);
+
+        var follow  = Mathf.Abs((transform.position - Player.transform.position).magnitude) < 10;
+        
         if(!_isFollow && follow)
         {
             Debug.Log("1");
             _isFollow = true;
-            _start = AStart.Convert(transform.position);
-            _target = AStart.Convert(Player.transform.position);
-            _path = AStart.SetStartAndTargetPosition(transform.position, Player.transform.position);
-            transform.position = AStart.Convert(_start);
+            _isCenter = false;
             var prev = GetPrev();
             if (!_path.ContainsKey(prev))
             {
-                Debug.Log("1 Not contains key " + prev);
+                Debug.Log("2 Not contains key " + prev);
                 _isFollow = false;
-                UpdateAnimation();
+                _isCenter = true;
                 return;
             }
-            _dir = transform.position - AStart.Convert(prev);
+            _isCenter = false;
+            CurrentCenter = AStart.Convert(prev);
+            _start = AStart.Convert(transform.position);
+            _target = AStart.Convert(Player.transform.position);
+            _path = AStart.SetStartAndTargetPosition(transform.position, Player.transform.position);
         }
         else if(_isFollow && !follow)
         {
             Debug.Log("2");
             _isFollow = false;
+            _isCenter = true;
         }
 
         if (_isFollow)
         {
             Debug.Log("3");
-            var start = AStart.Convert(transform.position);
-            var target = AStart.Convert(Player.transform.position);
-            if(_start != start)
+            if (_isCenter)
             {
-                _start = start;
-                transform.position = AStart.Convert(_start);
-                var prev = GetPrev();
-                if (!_path.ContainsKey(prev))
+                var start = AStart.Convert(transform.position);
+                var target = AStart.Convert(Player.transform.position);
+                if (_start != start)
                 {
-                    Debug.Log("2 Not contains key " + prev);
-                    _isFollow = false;
-                    UpdateAnimation();
-                    return;
+                    _start = start;
+                    var prev = GetPrev();
+                    if (!_path.ContainsKey(prev))
+                    {
+                        Debug.Log("2 Not contains key " + prev);
+                        _isFollow = false;
+                        _isCenter = true;
+                        return;
+                    }
+                    _isCenter = false;
+                    CurrentCenter = AStart.Convert(prev);
                 }
-                _dir = transform.position - AStart.Convert(prev);
-            }
-            if (_target != target)
-            {
-                _start = start;
-                _target = target;
-                _path = AStart.SetStartAndTargetPosition(transform.position, Player.transform.position);
-                transform.position = AStart.Convert(_start);
-                var prev = GetPrev();
-                if (!_path.ContainsKey(prev))
+                if (_target != target)
                 {
-                    Debug.Log("2 Not contains key " + prev);
-                    _isFollow = false;
-                    UpdateAnimation();
-                    return;
+                    _start = start;
+                    _target = target;
+                    _path = AStart.SetStartAndTargetPosition(transform.position, Player.transform.position);
+                    _isCenter = false;
+                    CurrentCenter = AStart.Convert(_start);
+
                 }
-                _dir = transform.position - AStart.Convert(prev);
-
             }
-            Debug.Log("4 " + _dir + " " + _start + " " + GetPrev());
-            transform.position -= _dir * Time.deltaTime * Speed;
-
+            Move();
         }
+        
         UpdateAnimation();
+    }
+
+    private void Move()
+    {
+        if (_isCenter) return;
+        _dir = CurrentCenter - transform.position;
+        transform.position += _dir.normalized * Time.deltaTime * Speed;
+        if(transform.position.x > CurrentCenter.x - 0.05f &&
+            transform.position.x < CurrentCenter.x + 0.05f &&
+            transform.position.y > CurrentCenter.y - 0.05f &&
+            transform.position.y < CurrentCenter.y + 0.05f)
+        {
+            _isCenter = true;
+        }
     }
 
     private Vector2Int GetPrev()
